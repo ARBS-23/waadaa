@@ -17,7 +17,7 @@ class SkuList extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'sku_lists';
+    protected $table = 'sku_list';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];

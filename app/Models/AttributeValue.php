@@ -35,6 +35,10 @@ class AttributeValue extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function attribute()
+    {
+        return $this->belongsTo(Attribute::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

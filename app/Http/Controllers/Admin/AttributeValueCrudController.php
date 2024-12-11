@@ -21,7 +21,7 @@ class AttributeValueCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -33,13 +33,14 @@ class AttributeValueCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        CRUD::column('attribute_id');
+        CRUD::column('attribute_value');
 
         /**
          * Columns can be defined using the fluent syntax:
@@ -49,14 +50,15 @@ class AttributeValueCrudController extends CrudController
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
     protected function setupCreateOperation()
     {
         CRUD::setValidation(AttributeValueRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
+        CRUD::field('attribute_id')->type('select2')->entity('attribute')->attribute('name');
+        CRUD::field('attribute_value')->type('text');
 
         /**
          * Fields can be defined using the fluent syntax:
@@ -66,7 +68,7 @@ class AttributeValueCrudController extends CrudController
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */

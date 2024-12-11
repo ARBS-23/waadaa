@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * @mixin IdeHelperPasswordReset
- */
-class PasswordReset extends Model
+class CategoryProduct extends Model
 {
+    use CrudTrait;
     use HasFactory;
 
     /*
@@ -18,14 +17,12 @@ class PasswordReset extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'password_resets';
-    protected $primaryKey = 'email';
+    protected $table = 'category_product';
+    // protected $primaryKey = 'id';
     // public $timestamps = false;
-    protected $guarded = [];
+    protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
-    // protected $dates = [];
-    public $timestamps = false;
 
     /*
     |--------------------------------------------------------------------------
@@ -38,6 +35,7 @@ class PasswordReset extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
 
     /*
     |--------------------------------------------------------------------------

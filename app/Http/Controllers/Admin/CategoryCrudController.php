@@ -21,7 +21,7 @@ class CategoryCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -33,13 +33,15 @@ class CategoryCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        CRUD::column('name');
+        CRUD::column('subcategory.name')->type('text')->label('Parent');
+        CRUD::column('new_name')->type('text');
 
         /**
          * Columns can be defined using the fluent syntax:
@@ -49,14 +51,31 @@ class CategoryCrudController extends CrudController
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
     protected function setupCreateOperation()
     {
         CRUD::setValidation(CategoryRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
+
+        CRUD::addField([
+            'name' => 'name',
+            'type' => 'text',
+            'label' => 'Category Name',
+            'attributes' => [
+                'placeholder' => 'Enter the category name here'
+            ]
+        ]);
+
+        $_cat = \App\Models\Category::where('id', '!=', request()->id)->get(['name', 'id', 'subcategory_id'])->pluck('new_name', 'id')->toArray();
+        CRUD::addField([
+            'name' => 'subcategory',
+            'type' => 'select2_from_array',
+            'label' => 'Subcategory',
+            'attribute' => 'new_name',
+            'options' => $_cat,
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax:
@@ -66,7 +85,7 @@ class CategoryCrudController extends CrudController
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */

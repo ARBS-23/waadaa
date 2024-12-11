@@ -21,7 +21,7 @@ class ProductCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -33,13 +33,15 @@ class ProductCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        CRUD::column('name');
+        CRUD::column('brand_id');
+        CRUD::column('categories');
 
         /**
          * Columns can be defined using the fluent syntax:
@@ -49,14 +51,21 @@ class ProductCrudController extends CrudController
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
     protected function setupCreateOperation()
     {
         CRUD::setValidation(ProductRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
+
+        CRUD::field('name');
+        CRUD::addField([
+            'name' => 'brand_id',
+        ]);
+        CRUD::addField([
+            'name' => 'categories',
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax:
@@ -66,7 +75,7 @@ class ProductCrudController extends CrudController
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */

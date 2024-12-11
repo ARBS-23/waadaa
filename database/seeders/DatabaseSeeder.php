@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
                 FooterLinkGroupSeeder::class,
                 FooterLinkSeeder::class,
                 SocialSeeder::class,
+                WaadaaSeeder::class
             ]);
         }
     }

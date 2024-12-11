@@ -1,5 +1,16 @@
 {{-- This file is used for menu items by any Backpack v6 theme --}}
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i> {{ trans('backpack::base.dashboard') }}</a></li>
+
+<x-backpack::menu-item title="Brands" icon="la la-question" :link="backpack_url('brand')" />
+<x-backpack::menu-item title="Categories" icon="la la-question" :link="backpack_url('category')" />
+<x-backpack::menu-item title="Products" icon="la la-question" :link="backpack_url('product')" />
+<x-backpack::menu-item title="Attributes" icon="la la-question" :link="backpack_url('attribute')" />
+<x-backpack::menu-item title="Attribute values" icon="la la-question" :link="backpack_url('attribute-value')" />
+<x-backpack::menu-item title="Attribute value color images" icon="la la-question" :link="backpack_url('attribute-value-color-image')" />
+<x-backpack::menu-item title="Variant groups" icon="la la-question" :link="backpack_url('variant-group')" />
+<x-backpack::menu-item title="Variant prices" icon="la la-question" :link="backpack_url('variant-price')" />
+<x-backpack::menu-item title="Sku lists" icon="la la-question" :link="backpack_url('sku-list')" />
+
 <x-backpack::menu-dropdown title="Authentication" icon="la la-puzzle-piece">
     {{--<x-backpack::menu-dropdown-header title="Authentication" />--}}
     <x-backpack::menu-dropdown-item title="Users" icon="la la-user" :link="backpack_url('user')" />

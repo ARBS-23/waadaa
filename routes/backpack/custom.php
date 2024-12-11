@@ -34,7 +34,15 @@ Route::group([
     Route::crud('footer-link-group', 'FooterLinkGroupCrudController');
     Route::crud('footer-link', 'FooterLinkCrudController');
 
-
+    Route::crud('attribute', 'AttributeCrudController');
+    Route::crud('attribute-value', 'AttributeValueCrudController');
+    Route::crud('attribute-value-color-image', 'AttributeValueColorImageCrudController');
+    Route::crud('variant-group', 'VariantGroupCrudController');
+    Route::crud('variant-price', 'VariantPriceCrudController');
+    Route::crud('sku-list', 'SkuListCrudController');
+    Route::crud('brand', 'BrandCrudController');
+    Route::crud('category', 'CategoryCrudController');
+    Route::crud('product', 'ProductCrudController');
 }); // this should be the absolute last line of this file
 
 /**

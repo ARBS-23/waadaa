@@ -35,6 +35,21 @@ class Attribute extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'attribute_category');
+    }
+
+    public function attributeValues()
+    {
+        return $this->hasMany(AttributeValue::class);
+    }
+
+    //hmt attribute value color images
+    public function attributeValueColorImages()
+    {
+        return $this->hasManyThrough(AttributeValueColorImage::class, AttributeValue::class, 'attribute_id', 'attribute_value_id', 'id', 'id');
+    }
 
     /*
     |--------------------------------------------------------------------------

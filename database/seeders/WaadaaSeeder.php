@@ -42,5 +42,8 @@ class WaadaaSeeder extends Seeder
 
         require_once(__DIR__ . '/seeder-data/variant_prices.php');
         DB::table('variant_prices')->insert($variant_prices ?? []);
+
+        require_once(__DIR__ . '/seeder-data/attribute_category.php');
+        DB::table('attribute_category')->insert($attribute_category ?? []);
     }
 }

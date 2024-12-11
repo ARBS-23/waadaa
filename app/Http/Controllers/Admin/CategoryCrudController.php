@@ -42,6 +42,7 @@ class CategoryCrudController extends CrudController
         CRUD::column('name');
         CRUD::column('subcategory.name')->type('text')->label('Parent');
         CRUD::column('new_name')->type('text');
+        CRUD::column('attributes')->type('relationship')->label('Attributes')->attribute('name');
 
         /**
          * Columns can be defined using the fluent syntax:
@@ -75,6 +76,19 @@ class CategoryCrudController extends CrudController
             'label' => 'Subcategory',
             'attribute' => 'new_name',
             'options' => $_cat,
+        ]);
+
+        CRUD::addField([
+            'name' => 'attributes',
+            'type' => 'select2_multiple',
+            'label' => 'Attributes',
+            'entity' => 'attributes',
+            'attribute' => 'name',
+            'model' => \App\Models\Attribute::class,
+            'pivot' => true,
+            'options' => (function ($query) {
+                return $query->get();
+            }),
         ]);
 
         /**

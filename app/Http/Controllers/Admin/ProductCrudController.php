@@ -65,7 +65,11 @@ class ProductCrudController extends CrudController
         ]);
         CRUD::addField([
             'name' => 'categories',
+            'attribute' => 'new_name',
         ]);
+
+        CRUD::setCreateView('products.create');
+        CRUD::setUpdateView('products.create');
 
         /**
          * Fields can be defined using the fluent syntax:

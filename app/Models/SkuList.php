@@ -35,6 +35,10 @@ class SkuList extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function variantPrice()
+    {
+        return $this->belongsTo(VariantPrice::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

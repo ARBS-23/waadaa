@@ -35,6 +35,27 @@ class VariantGroup extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function attributeValue()
+    {
+        return $this->belongsTo(AttributeValue::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+    }
+
+    public function variantPrices()
+    {
+        return $this->hasMany(VariantPrice::class, 'w_sku', 'w_sku');
+    }
+
+    public function skuList()
+    {
+        return $this->hasManyThrough(SkuList::class, VariantPrice::class, 'w_sku', 'variant_price_id', 'w_sku', 'id');
+    }
+
+
 
     /*
     |--------------------------------------------------------------------------

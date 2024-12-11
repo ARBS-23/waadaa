@@ -45,6 +45,16 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
+    public function variantGroups()
+    {
+        return $this->hasMany(VariantGroup::class, 'product_id');
+    }
+
+    public function variantPrices()
+    {
+        return $this->hasManyThrough(VariantPrice::class, VariantGroup::class, 'product_id', 'w_sku', 'id', 'w_sku');
+    }
+
 
     /*
     |--------------------------------------------------------------------------

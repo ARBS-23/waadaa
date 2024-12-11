@@ -35,6 +35,15 @@ class VariantPrice extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function variantGroup()
+    {
+        return $this->belongsTo(VariantGroup::class, 'w_sku', 'w_sku');
+    }
+
+    public function skuList()
+    {
+        return $this->hasMany(SkuList::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

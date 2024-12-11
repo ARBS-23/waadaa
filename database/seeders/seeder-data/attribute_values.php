@@ -88,5 +88,29 @@ $attribute_values = array (
     'created_at' => '2024-12-11 18:41:55',
     'updated_at' => '2024-12-11 18:41:55',
   ),
+  11 => 
+  array (
+    'id' => 12,
+    'attribute_id' => 2,
+    'attribute_value' => '32',
+    'created_at' => '2024-12-12 06:10:09',
+    'updated_at' => '2024-12-12 06:10:09',
+  ),
+  12 => 
+  array (
+    'id' => 13,
+    'attribute_id' => 2,
+    'attribute_value' => '31',
+    'created_at' => '2024-12-12 06:10:19',
+    'updated_at' => '2024-12-12 06:10:19',
+  ),
+  13 => 
+  array (
+    'id' => 14,
+    'attribute_id' => 2,
+    'attribute_value' => '30',
+    'created_at' => '2024-12-12 06:10:26',
+    'updated_at' => '2024-12-12 06:10:26',
+  ),
 );
 return $attribute_values;

@@ -16,5 +16,13 @@ $products = array (
     'created_at' => '2024-12-11 19:50:03',
     'updated_at' => '2024-12-11 19:50:03',
   ),
+  2 => 
+  array (
+    'id' => 3,
+    'name' => 'Ori Ingram',
+    'brand_id' => 1,
+    'created_at' => '2024-12-12 07:53:41',
+    'updated_at' => '2024-12-12 07:53:41',
+  ),
 );
 return $products;

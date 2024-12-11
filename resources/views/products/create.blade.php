@@ -55,5 +55,7 @@
         </div>
     </div>
 
+    @include("products.vue")
+
 @endsection
 
